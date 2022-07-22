@@ -2,7 +2,7 @@ import './Nav.css'
 import logo from './logocm.png'
 import instagram from './instagram.png'
 import wspp from './wspp.png'
-import CartWidget from './CartWidget'
+import CartWidget from '../Cartwidget/CartWidget'
 
 
 export default function Nav(){
