@@ -1,11 +1,12 @@
 import React from 'react'
+import ItemList from '../ItemList/ItemList'
 
 const ItemListConteiner = () => {
   return (
     <>    
     <div>
         <h1>
-            Próximamente
+            <ItemList/>
         </h1>
     </div>
     </>
