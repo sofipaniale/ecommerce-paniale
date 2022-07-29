@@ -12,17 +12,18 @@ const ItemList = () => {
         resolve(productList)}, 
         2000)
 });
+    useEffect(()=>{
+        getProducts
+            .then(async () => {
+                const result = await getProducts;
+                setProducts(result);
+            })
+            .catch((error) => {
+                console.log('error al mostrar')
+            })
 
-    getProducts
-    .then(async () => {
-        const result = await getProducts;
-        setProducts(result);
-        console.log(productList); //para control
-        console.log(products); //para control
-    })
-    .catch((error) => {
-        console.log('error al mostrar')
-    })
+    },[])
+
 
 
   return (
