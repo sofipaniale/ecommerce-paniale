@@ -44,7 +44,7 @@
       padding: 40px 20px;
     }
     
-    #nav .menu_inline li a:hover {
+    #nav .menu_inline li:hover {
       background-color: gray;
     }
     

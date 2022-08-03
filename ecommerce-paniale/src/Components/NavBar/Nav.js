@@ -3,6 +3,7 @@ import logo from './logocm.png'
 import instagram from './instagram.png'
 import wspp from './wspp.png'
 import CartWidget from '../Cartwidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 
 export default function Nav(){
@@ -16,16 +17,15 @@ export default function Nav(){
                 
     <ul className="menu_inline">
             
-        <li><a className="menu_item" href="index.html">INICIO</a></li>
-        <li><a className="menu_item" href="html/galeria.html">GALERIA</a></li>
-        <li className='menu_desplegable'>
-            <a className="menu_item" href="html/productos.html">PRODUCTOS</a>
+        <Link to="/Home"><li>INICIO</li></Link>
+        <Link to="/Gallery"><li>GALERIA</li></Link>
+        <Link to="/Products"><li>
             <ul>OJOS</ul>
             <ul>BOCA</ul>
             <ul>CEJAS</ul>
         
-        </li>
-        <li><a className="menu_item" href="html/servicios.html">SERVICIOS</a></li>
+        </li></Link>
+        <Link to="/Services"><li>SERVICIOS</li></Link>
         <li><a className="menu_item" href="html/contacto.html">CONTACTO</a></li> 
             
         <div><a href="#"><img src={instagram} alt="instagram" style={{height:30, width:30}}/></a></div>   
