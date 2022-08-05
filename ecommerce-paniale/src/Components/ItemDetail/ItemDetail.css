@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+ .card {
+      background-color: gainsboro;
+    }
+  
+  .card-actions {
+      text-align: center;
+  
+    }

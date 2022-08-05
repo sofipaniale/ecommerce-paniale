@@ -32,8 +32,8 @@ const ItemList = () => {
             {products.map((product) => {
             return (
                 <div key={product.id} className="item-list-conteiner">
-                    <ItemProduct data={product}/>
-                    <ItemCount initial={1} stock={product.stock}/>
+                    <ItemProduct data={product} stock={product.stock}/>
+                    
                 </div>)
                 })}
         </div>

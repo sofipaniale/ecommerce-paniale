@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 const ItemCount = ({stock, initial}) => {
@@ -17,9 +19,9 @@ const ItemCount = ({stock, initial}) => {
     return (
         <>
         <div>
-            <button onClick={restItem}>-</button>
-            <p>{count}</p>
-            <button onClick={addItem}>+</button>
+            <Button variant="outlined" onClick={restItem}>-</Button>
+            <Typography>{count}</Typography>
+            <Button variant="outlined" size="medium" onClick={addItem}>+</Button>
         </div>
         </>
     );
