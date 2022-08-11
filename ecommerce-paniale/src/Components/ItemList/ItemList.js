@@ -1,37 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import ItemProduct from '../ItemProduct/ItemProduct';
-import ItemCount from '../ItemCount/ItemCount';
-import { productList } from '../../data/data';
+import './ItemList.css'
 
-const ItemList = () => {
-
-    const [products, setProducts] = useState([]);
-
-    const getProducts = new Promise((resolve) =>{
-    setTimeout(()=>{
-        resolve(productList)}, 
-        2000)
-});
-    useEffect(()=>{
-        getProducts
-            .then(async () => {
-                const result = await getProducts;
-                setProducts(result);
-            })
-            .catch((error) => {
-                console.log('error al mostrar')
-            })
-
-    },[])
-
+const ItemList = ({data}) => {
 
 
   return (
 
-        <div>
-            {products.map((product) => {
+        <div className='item-list'>
+            {data.map((product) => {
             return (
-                <div key={product.id} className="item-list-conteiner">
+                <div key={product.id} className="item-product">
                     <ItemProduct data={product} stock={product.stock}/>
                     
                 </div>)

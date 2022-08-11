@@ -4,7 +4,7 @@ const CartWidget= () => {
 
   return (
     <div>
-      <a href="#">
+      <a href="#" className='text-link'>
         <img src="/assets/logo_cart.png"/>
       </a>       
     </div>

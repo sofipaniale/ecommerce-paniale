@@ -31,32 +31,27 @@
       justify-content: space-between;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    
-    .menu_inline {
-      flex-grow: 1;
+
   
-    }
+
     #nav .menu_inline li a {
       display: block;
       text-decoration: none;
       text-align: center;
       color: #000;
       font-family: 'Josefin Sans', sans serif;
-      padding: 40px 20px;
     }
     
-    #nav .menu_inline li:hover {
+    #nav .menu_inline a:hover {
       background-color: gray;
     }
-    
-    li ul{
-      display: none;
-    }
-    
-    #nav .menu_desplegable li:hover > ul {
-      display: inline;
-      float: left;
+
+    .text-link {
+      color: inherit;
+      text-decoration: inherit;
+      padding: 30px;
   }
+    
   .product-container div {
     border: 1px black
   }
@@ -76,5 +71,6 @@
 
   .item-container{
     justify-items: center;
+    display: flex;
 
   }

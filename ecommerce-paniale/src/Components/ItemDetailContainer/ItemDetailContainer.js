@@ -8,20 +8,21 @@ const ItemDetailContainer = () => {
     const [productData, setProductData] = useState({})
 
     const { id } = useParams()
+
+    const filterById = () => {
+        productList.filter( (product) => {
+            if(product.id === id) {
+                console.log("producto filtrado: ", product)
+                setProductData(product) 
+            }
+        })
+    }
     
     useEffect( () => {
         filterById()
     }, [id])
 
-    const filterById = () => {
-        productList.some( (product) => {
-            if(product.id == id) {
-                console.log("producto filtrado: ", product)
-                setProductData(product) 
-            }
-        }
-    )
-    }
+    
     return(
         <div className="container-item-detail">
             <ItemDetail data={productData}/>

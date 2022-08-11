@@ -1,0 +1,10 @@
+.item-count {
+    display:inline-flex;
+    max-width: 340px;
+}
+
+button {
+    justify-content: space-around;
+    margin: 10px;
+    color:black;
+}
