@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-  
   }
   
  .card {
@@ -10,5 +9,19 @@
   
   .card-actions {
       text-align: center;
-  
+    }
+
+    .item-detail {
+      text-align: center;
+
+    }
+
+    div {
+      justify-content: center;
+    }
+
+    .button{
+      margin:5px;
+      border-color: slategray;
+      border-width: 1px;
     }

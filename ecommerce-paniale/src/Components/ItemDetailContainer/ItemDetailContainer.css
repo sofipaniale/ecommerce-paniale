@@ -1,0 +1,17 @@
+*{
+    margin: 10px;
+    padding: 0;
+}
+
+.container-item-detail div{
+    justify-content: space-around;
+    background-color: slategrey;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.item-detail{
+    text-align: center;
+}
+

@@ -8,6 +8,7 @@ export const productList = [
         img: "https://iili.io/8IH1xR.jpg",
         stock: 10,
         category: 'rostro',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -17,6 +18,7 @@ export const productList = [
         img: 'https://iili.io/8IHlDv.jpg',
         stock: 10,
         category: 'rostro',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -26,6 +28,7 @@ export const productList = [
         img: '/assets/delineador.jpg',
         stock: 10,
         category: 'ojos',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -35,6 +38,7 @@ export const productList = [
         img: 'https://iili.io/8IHGiN.jpg',
         stock: 10,
         category: 'labios',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -44,6 +48,7 @@ export const productList = [
         img: 'https://iili.io/8IHVfI.jpg',
         stock: 10,
         category: 'labios',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -53,6 +58,7 @@ export const productList = [
         img: 'https://iili.io/8IHXUX.jpg',
         stock: 10,
         category: 'ojos',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     },
     {
@@ -62,6 +68,7 @@ export const productList = [
         img: 'https://iili.io/8IHjJn.jpg',
         stock: 10,
         category: 'ojos',
+        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. '
 
     }
 ];

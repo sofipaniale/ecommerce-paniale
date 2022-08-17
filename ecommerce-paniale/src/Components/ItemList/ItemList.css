@@ -1,4 +1,8 @@
 .item-list{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-self: center;
+    padding: 10px;
 }
+
+

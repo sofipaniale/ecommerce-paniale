@@ -12,7 +12,9 @@ const ItemListConteiner = () => {
 
     const filtrados = productList.filter ((product => product.category === category));
     
-    const getProducts = new Promise((resolve) => {
+    useEffect(()=>{
+
+        const getProducts = new Promise((resolve) => {
             setTimeout(()=>{
                 if (category) {
                     resolve(filtrados);
@@ -21,8 +23,7 @@ const ItemListConteiner = () => {
                 }
             }, 2000);
     });
-
-    useEffect(()=>{
+    
          getProducts
               .then(async()=>{
                 const result = await getProducts;
