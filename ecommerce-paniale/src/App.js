@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Nav from './Components/NavBar/Nav';
-import Checkout from './pages/Checkout';
+import Checkout from './Components/Checkout/Checkout';
 import ItemListConteiner from './Components/ItemListConteiner/ItemListConteiner';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 

@@ -1,16 +1,18 @@
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './ItemCount.css';
+import CartContext from '../../Context/CartContext';
 
 
-const ItemCount = ({stock, data, initial}) => {
+const ItemCount = ({stock, data}) => {
 
-
+    const {name,price,img,stock,description} = data;
     const [count, setCount] = useState(1);
+    const {addToCart} = useContext(CartContext)
 
     let disable= false;
   
@@ -25,10 +27,8 @@ const ItemCount = ({stock, data, initial}) => {
 
     const [Compra,setCompra ] = useState(false);
     
-    const onAdd = () => {setCompra(true)}
-    //setCompra (true),
-    //console.log("Producto desde itemCount: ");
-    //console.log("cantidad desde itemCount: ", count);}
+    const onAdd = () => {addToCart ({...data, quantity:count}),setCompra(true)}
+
   
     return (
         <> 
