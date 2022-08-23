@@ -5,9 +5,11 @@ import Nav from './Components/NavBar/Nav';
 import Checkout from './Components/Checkout/Checkout';
 import ItemListConteiner from './Components/ItemListConteiner/ItemListConteiner';
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
+import CartProvider from './Context/CartContext';
 
 function App() {
   return (
+    <CartProvider>
     <BrowserRouter>
       <Nav />
       <Routes>
@@ -19,6 +21,7 @@ function App() {
         <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
      </Routes>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

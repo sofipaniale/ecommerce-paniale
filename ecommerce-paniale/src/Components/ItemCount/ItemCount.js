@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './ItemCount.css';
-import CartContext from '../../Context/CartContext';
+import { CartContext } from '../../Context/CartContext';
 
 
-const ItemCount = ({stock, data}) => {
+const ItemCount = ({data}) => {
 
-    const {name,price,img,stock,description} = data;
+    const stock = data.stock;
     const [count, setCount] = useState(1);
-    const {addToCart} = useContext(CartContext)
+    const {addToCart} = useContext(CartContext);
 
     let disable= false;
   
@@ -22,12 +22,16 @@ const ItemCount = ({stock, data}) => {
     }
     
     const restItem = () => {
-      if(count>initial){setCount(count - 1)}else{disable=true};
+      if(count>1){setCount(count - 1)}else{disable=true};
     }
 
     const [Compra,setCompra ] = useState(false);
     
-    const onAdd = () => {addToCart ({...data, quantity:count}),setCompra(true)}
+    const onAdd = () => {
+      addToCart ({...data, quantity:count})
+      setCompra(true)
+    }
+
 
   
     return (

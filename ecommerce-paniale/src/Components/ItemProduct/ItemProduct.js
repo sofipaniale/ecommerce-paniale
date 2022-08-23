@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 const ItemProduct = ({data}) => {
@@ -23,7 +21,7 @@ const ItemProduct = ({data}) => {
                />
             
              <CardContent>
-                <Typography gutterbottom variant="h5" component="div">
+                <Typography gutterBottom={true} variant="h5" component="div">
                     {name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -35,7 +33,7 @@ const ItemProduct = ({data}) => {
              </CardContent>
            </Link>
             <div>
-              <ItemCount initial={1} stock={stock}/>
+              <ItemCount data={data}/>
             </div>
           </Card>
       </div>

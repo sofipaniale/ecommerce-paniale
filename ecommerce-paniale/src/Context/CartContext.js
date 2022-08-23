@@ -9,7 +9,8 @@ const CartProvider = ({ children }) => {
 
     const addToCart = (product) => {
         //console.log(product)
-        const isInCart = cart.find((productInCart) => productInCart.id === product.id,);
+        const isInCart = cart.find((productInCart) => productInCart.id === product.id);
+        console.log(cart);
         
         if (isInCart) {
             const nuevo = cart.map((productInCart) => {
@@ -23,13 +24,15 @@ const CartProvider = ({ children }) => {
             }
             });
             setCart(nuevo);
-            } else {
+        } else {
             setCart([...cart, product]);
-            }
-            setCounter (counter+product.quantity);
-            setTotal(total + parseInt(product.quantity)*parseFloat(product.price)
-            );
         };
+        setCounter(counter + product.quantity);
+        console.log(counter);
+        setTotal(total + parseInt(product.quantity)*parseFloat(product.price)
+        );
+    };
+        
     const clear = () => {
     setCart([]);
     setCounter(0);

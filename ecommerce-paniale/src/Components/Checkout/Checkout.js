@@ -1,17 +1,13 @@
-import React from 'react'
-import React, { useContext } from "react";
-import {CartContext} from "../../Context/CartContext"
+import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartContext from '../../Context/CartContext';
+import { CartContext } from '../../Context/CartContext';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
 
 
 const Checkout = () => {
-
-    const {counter, total, cart, addToCart, clear, removeFromCart } = useContext(CartContext);
-  
-  
+    const {counter, total, cart, clear, removeFromCart } = useContext(CartContext);
     return counter === 0 ? (
         <>
           <div className="checkout-container">
