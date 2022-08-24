@@ -3,13 +3,22 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { productList } from '../../data/data'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { doc, getDoc } from '@firebase/firestore'
+import db from '../../FirebaseConfig'
 
 const ItemDetailContainer = () => {
     const [products, setProductData] = useState([])
 
     const {id} = useParams();
 
-    const filtrados = productList.find ((product => product.id == id));
+    useEffect(()=>{
+
+        const queryDoc = doc(db, "products", id)
+        getDoc(queryDoc)
+             .then(res=>setProductData({id: res.id, ...res.data()}))
+        },[id])
+
+    /*const filtrados = productList.find ((product => product.id == id));
    
     console.log(filtrados);
     
@@ -29,7 +38,7 @@ const ItemDetailContainer = () => {
              .catch((error) =>{
                 console.log('error al mostrar')}
              )
-    },[id]);
+    },[id]);*/
     
     return(
         <div className="container-item-detail">
