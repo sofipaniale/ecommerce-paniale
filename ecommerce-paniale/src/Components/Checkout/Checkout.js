@@ -1,12 +1,52 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from '../../Context/CartContext';
 import { Typography } from '@mui/material';
 import { Button } from '@mui/material';
-
+import Modal from "../Modal/Modal";
+import db from '../../FirebaseConfig';
+import { collection, addDoc } from "firebase/firestore";
 
 const Checkout = () => {
+
+    const {ShowModal,setShowModal} = useState(false);
+    const [sent, setSent] = useState();
+    const [order, setOrder] = useState({
+      items: cart.map((p)=>{
+        return{
+          id:p.id,
+          title:p.title,
+          price:p.price,
+          cant: p.quantitySelected 
+        }
+      } ),
+      buyer: {},
+      date: new Date().toLocaleString(),
+      total: total
+    })
+
+    const [formData, setFormData] = useState({
+      name: '',
+      phone: '',
+      email: '',
+    })
+
+    const handleChange = (e) => {
+      setFormData({...formData, [e.target.name]: e.target.value})
+    }
+  
+    const submitData = (e) =>{
+      e.preventDefault ()
+      pushData({...order, buyer: formData})
+    }
+  
+    const pushData = async (newOrder) => {
+      const collectionOrder = collection(db, 'ordenes')
+      const orderDoc = await addDoc(collectionOrder, newOrder)
+      setSent(orderDoc.id)
+    }
+
     const {counter, total, cart, clear, removeFromCart } = useContext(CartContext);
     return counter === 0 ? (
         <>
@@ -51,7 +91,7 @@ const Checkout = () => {
                 </Link>
                 <Link to={'/'}>
                   <Button
-                    onClick={() => clear()}
+                    onClick={() => {clear(); setShowModal(true)}}
                     >
                     Confirmar Compra
                   </Button>
@@ -60,10 +100,30 @@ const Checkout = () => {
                   Vaciar Carrito
                 </Button>
             </div> 
-            );
-              
-        </>
+
+            {ShowModal &&
+            <Modal close={() =>{setShowModal(false)}}>
+              {sent ?(
+            <>
+            <h2 >Su orden se generó correctamente</h2>
+            <p >n de compra:  {sent}</p>
+            <Link to="/">
+            <button onClick={() => clear()}>Volver al Home</button>
+            </Link>
+            </>):(<>
+              <form className="form" onSubmit={submitData}>
+                <input type='text' name='name' placeholder='ingrese nombre' OnChange= {handleChange} value = {formData.name}/>
+                <input type='email' name='email' placeholder='ingrese mail' onChange={handleChange} value = {formData.email}/>
+                <input type='number' name='phone' placeholder='ingrese telefono' onChange={handleChange} value = {formData.phone}/>
+                <Button type ='submit'>ENVIAR</Button>
+              </form>
+              </>)}
+            </Modal>};
+
+          </>
+
         );
+
     };
     
 export default Checkout
