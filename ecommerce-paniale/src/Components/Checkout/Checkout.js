@@ -12,14 +12,14 @@ const Checkout = () => {
 
     const {counter, total, cart, clear, removeFromCart } = useContext(CartContext);
     const [ShowModal,setShowModal] = useState(false);
-    const [sent, setSent] = useState(0);
+    const [sent, setSent] = useState();
     const [order, setOrder] = useState({
-      items: cart.map((product)=>{
+      items: cart.map((p)=>{
         return{
-          id:product.id,
-          title:product.title,
-          price:product.price,
-          cant: product.quantitySelected 
+          id:p.id,
+          title:p.name,
+          price:p.price,
+          cant: p.quantity
         }
       } ),
       buyer: {},
@@ -41,8 +41,7 @@ const Checkout = () => {
   
     const submitData = (e) =>{
       e.preventDefault();
-      setOrder({...order, buyer: formData})
-      pushData(order);
+      pushData({...order, buyer: formData})
       console.log(order)
     }
   
