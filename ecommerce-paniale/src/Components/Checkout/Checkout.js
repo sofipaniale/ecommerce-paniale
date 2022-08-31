@@ -10,15 +10,16 @@ import { collection, addDoc } from "firebase/firestore";
 
 const Checkout = () => {
 
-    const {ShowModal,setShowModal} = useState(false);
-    const [sent, setSent] = useState();
+    const {counter, total, cart, clear, removeFromCart } = useContext(CartContext);
+    const [ShowModal,setShowModal] = useState(false);
+    const [sent, setSent] = useState(0);
     const [order, setOrder] = useState({
-      items: cart.map((p)=>{
+      items: cart.map((product)=>{
         return{
-          id:p.id,
-          title:p.title,
-          price:p.price,
-          cant: p.quantitySelected 
+          id:product.id,
+          title:product.title,
+          price:product.price,
+          cant: product.quantitySelected 
         }
       } ),
       buyer: {},
@@ -34,20 +35,24 @@ const Checkout = () => {
 
     const handleChange = (e) => {
       setFormData({...formData, [e.target.name]: e.target.value})
+      console.log({...formData, [e.target.name]: e.target.value})
+      console.log(order);
     }
   
     const submitData = (e) =>{
-      e.preventDefault ()
-      pushData({...order, buyer: formData})
+      e.preventDefault();
+      setOrder({...order, buyer: formData})
+      pushData(order);
+      console.log(order)
     }
   
     const pushData = async (newOrder) => {
-      const collectionOrder = collection(db, 'ordenes')
+      const collectionOrder = collection(db, 'orders')
       const orderDoc = await addDoc(collectionOrder, newOrder)
-      setSent(orderDoc.id)
+      setSent(orderDoc.id);
     }
 
-    const {counter, total, cart, clear, removeFromCart } = useContext(CartContext);
+    
     return counter === 0 ? (
         <>
           <div className="checkout-container">
@@ -89,13 +94,13 @@ const Checkout = () => {
                     Seguir Comprando
                   </Button>
                 </Link>
-                <Link to={'/'}>
+
                   <Button
-                    onClick={() => {clear(); setShowModal(true)}}
+                    onClick={() => {setShowModal(true)}}
                     >
                     Confirmar Compra
                   </Button>
-                </Link>
+
                 <Button onClick={() => clear()}>
                   Vaciar Carrito
                 </Button>
@@ -112,10 +117,10 @@ const Checkout = () => {
             </Link>
             </>):(<>
               <form className="form" onSubmit={submitData}>
-                <input type='text' name='name' placeholder='ingrese nombre' OnChange= {handleChange} value = {formData.name}/>
+                <input type='text' name='name' placeholder='ingrese nombre' onChange={handleChange} value = {formData.name}/>
                 <input type='email' name='email' placeholder='ingrese mail' onChange={handleChange} value = {formData.email}/>
                 <input type='number' name='phone' placeholder='ingrese telefono' onChange={handleChange} value = {formData.phone}/>
-                <Button type ='submit'>ENVIAR</Button>
+                <Button type="submit">ENVIAR</Button>
               </form>
               </>)}
             </Modal>};
