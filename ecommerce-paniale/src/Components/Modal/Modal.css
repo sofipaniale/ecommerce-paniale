@@ -12,10 +12,13 @@
     transform: translate(-50%, -50%);
     background: whitesmoke;
     width: 400px;
-    height: 500px;
+    height: 400px;
     box-shadow: 1px 5px 5px #00000047;
     border-radius: 5px;
+    border-color: grey;
+    border-width: 2px;
     padding: 20px;
+    text-align: center;
 }
 
 .modal-custom:before {
@@ -27,4 +30,21 @@
     left: 0;
     top: 0;
     z-index: -1;
+}
+
+input {
+    width: 300px;
+    padding: 5px;
+    margin: 20px;
+}
+
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+    padding: 30px;
+    text-align: center;
+}
+
+button {
+    margin: 10px;
 }

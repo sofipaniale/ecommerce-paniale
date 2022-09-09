@@ -5,8 +5,7 @@
     justify-content: center;
 }
 
-button {
+a{
     justify-content: space-around;
-    margin: 10px;
-    color:black;
+    margin: 5px;
 }

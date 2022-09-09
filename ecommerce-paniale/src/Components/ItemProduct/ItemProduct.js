@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 
 const ItemProduct = ({data}) => {
 
-  const {name,price,stock,img,id,category} = data
+  const {name,price,stock,img,id} = data
 
   return (
       <div className="card">  
           <Card sx={{ maxWidth: 300 }}>
-            <Link to={`products/${category}/${id}`} className='text-link'>
+            <Link to={`/${id}`} className='text-link'>
                <CardMedia
                 component="img"
                 height="280"

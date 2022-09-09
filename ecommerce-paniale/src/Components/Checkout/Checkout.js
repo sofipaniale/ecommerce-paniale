@@ -3,10 +3,14 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from '../../Context/CartContext';
 import { Typography } from '@mui/material';
+import { createTheme, ThemeProvider} from '@mui/material/styles';
 import { Button } from '@mui/material';
+import IconButton  from '@mui/material/IconButton';
+import DeleteIcon  from '@mui/icons-material/Delete';
 import Modal from "../Modal/Modal";
 import db from '../../FirebaseConfig';
 import { collection, addDoc } from "firebase/firestore";
+import './Checkout.css'
 
 const Checkout = () => {
 
@@ -51,6 +55,17 @@ const Checkout = () => {
       setSent(orderDoc.id);
     }
 
+    const theme = createTheme({
+      palette: {
+        primary: {
+          light: '#a7c0cd',
+          main: '#78909c',
+          dark: '#4b636e',
+          contrastText: '#fff',
+        },
+      },
+    });
+
     
     return counter === 0 ? (
         <>
@@ -62,68 +77,79 @@ const Checkout = () => {
         </>
       ) : (
         <>
-            <Typography gutterBottom variant="h5" component="div">
+        <ThemeProvider theme={theme}>
+            <Typography gutterBottom variant="h5" component="div" className='text-link'>
                 Tu Carrito
             </Typography>
             <div>
               {cart.map((product) => {
                 return (
-                <>
-                  <div>
-                    <img height="100px" src={product.img} />
-                  </div>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.title}
-                    {product.price}
-                    {product.quantity}
-                    Total:{parseInt(product.quantity) * parseFloat(product.price)}
-                  </Typography>
-                <div className="contenedorCant">
-                    <Button onClick={() => removeFromCart(product.id)}>Eliminar</Button>
+                <div className='list'>
+                <div>
+                    <img height="100px" alt='img-producto' src={product.img} />
                 </div>
-                </>)}
-                )};
+                <div>
+                  <Typography variant="body2" color="text.secondary">
+                    <p>{product.name}</p>
+                    <p>Precio: {product.price}</p>
+                    <p>Cantidad: {product.quantity}</p>
+                    <p>Total: {parseInt(product.quantity) * parseFloat(product.price)}</p>
+                  </Typography>
+                </div>
+                <div className="contenedorCant">
+                    <IconButton variant="contained" size="small" color="primary" onClick={() => removeFromCart(product.id)}>
+                       <DeleteIcon/>
+                    </IconButton>
+                </div>
+                </div>)}
+                )}
             </div>
             <div>
+
               <div>
-                ${total}
+                <h3 className="text-link">
+                  Total: ${total}
+                </h3>
               </div>
-                <Link to={`/products`}>
-                  <Button>
-                    Seguir Comprando
-                  </Button>
-                </Link>
 
-                  <Button
-                    onClick={() => {setShowModal(true)}}
-                    >
-                    Confirmar Compra
-                  </Button>
+                 <Button variant="contained" size="medium" color="primary"
+                   onClick={() => {setShowModal(true)}}
+                   >
+                   Confirmar Compra
+                 </Button>
 
-                <Button onClick={() => clear()}>
-                  Vaciar Carrito
-                </Button>
+                 <Link className='text-link' to={`/products`}>
+                   <Button variant="contained" size="medium" color="primary">
+                   Seguir Comprando
+                   </Button>
+                 </Link>
+
+                 <Button variant="contained" size="medium" color="primary" onClick={() => clear()}>
+                   Vaciar Carrito
+                 </Button>
+
             </div> 
 
             {ShowModal &&
-            <Modal close={() =>{setShowModal(false)}}>
+            <Modal close={() =>{setShowModal(false)}} title={'DATOS DE TU COMPRA'}>
               {sent ?(
             <>
             <h2 >Su orden se generó correctamente</h2>
             <p >n de compra:  {sent}</p>
             <Link to="/">
-            <button onClick={() => clear()}>Volver al Home</button>
+            <Button variant="contained" size="large" color="primary" onClick={() => clear()}>Volver al Home</Button>
             </Link>
             </>):(<>
               <form className="form" onSubmit={submitData}>
                 <input type='text' name='name' placeholder='ingrese nombre' onChange={handleChange} value = {formData.name}/>
                 <input type='email' name='email' placeholder='ingrese mail' onChange={handleChange} value = {formData.email}/>
                 <input type='number' name='phone' placeholder='ingrese telefono' onChange={handleChange} value = {formData.phone}/>
-                <Button type="submit">ENVIAR</Button>
+                <Button type="submit" variant="contained" size="large" color="primary">CONFIRMAR</Button>
+                <Button variant="contained" size="large" color="primary" onClick={() =>{setShowModal(false)}}>CANCELAR</Button>
               </form>
               </>)}
             </Modal>};
-
+          </ThemeProvider>
           </>
 
         );
