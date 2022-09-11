@@ -10,7 +10,12 @@
   
     #nav .img-div {
       text-align: center;
+      background-color:rgba(159, 182, 191)
   
+    }
+
+    .cartwidget{
+      background-color:rgba(159, 182, 191)
     }
   
     h1 {

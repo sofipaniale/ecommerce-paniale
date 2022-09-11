@@ -29,10 +29,9 @@ const CartProvider = ({ children }) => {
         };
         setCounter(counter + product.quantity);
         console.log(counter);
-        setTotal(total + parseInt(product.quantity)*parseFloat(product.price)
-        );
+        setTotal(total + parseInt(product.quantity)*parseFloat(product.price));
     };
-        
+
     const clear = () => {
     setCart([]);
     setCounter(0);

@@ -29,13 +29,13 @@ const Checkout = () => {
       buyer: {},
       date: new Date().toLocaleString(),
       total: total
-    })
+    });
 
     const [formData, setFormData] = useState({
       name: '',
       phone: '',
       email: '',
-    })
+    });
 
     const handleChange = (e) => {
       setFormData({...formData, [e.target.name]: e.target.value})
@@ -104,7 +104,7 @@ const Checkout = () => {
                 </div>)}
                 )}
             </div>
-            <div>
+            <div className="button-container">
 
               <div>
                 <h3 className="text-link">
@@ -131,11 +131,11 @@ const Checkout = () => {
             </div> 
 
             {ShowModal &&
-            <Modal close={() =>{setShowModal(false)}} title={'DATOS DE TU COMPRA'}>
+            <Modal close={() =>{setShowModal(false)}} title={'DATOS DE SU COMPRA'}>
               {sent ?(
             <>
-            <h2 >Su orden se generó correctamente</h2>
-            <p >n de compra:  {sent}</p>
+            <h3 className="text-link">Su orden se generó correctamente</h3>
+            <h4 className="text-link">Número de orden: {sent}</h4>
             <Link to="/">
             <Button variant="contained" size="large" color="primary" onClick={() => clear()}>Volver al Home</Button>
             </Link>

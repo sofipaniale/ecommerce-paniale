@@ -21,7 +21,7 @@ const ItemProduct = ({data}) => {
                />
             
              <CardContent>
-                <Typography gutterBottom={true} variant="h5" component="div">
+                <Typography className='cartel' gutterBottom={true} variant="h5" component="div">
                     {name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

@@ -60,7 +60,7 @@ const ItemCount = ({data}) => {
           <Button onClick={onAdd} className="button" variant="contained" size="small" color="primary">Agregar al carrito</Button>
         </>:
         <>
-          <Link to={`/products`}><Button variant="contained" size="small" color="primary">Seguir Comprando</Button></Link>
+          <Link to={`/products`}><Button variant="contained" size="small" color="primary" className='button'>Seguir Comprando</Button></Link>
           <Link to={`/cart`}><Button variant="contained" size="small" color="primary" className='button'>Terminar Compra</Button></Link>
           </>}
         </div>

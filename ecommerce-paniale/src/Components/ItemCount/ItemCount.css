@@ -5,7 +5,11 @@
     justify-content: center;
 }
 
+.card-actions button {
+    margin: 10px;
+
+}
+
 a{
-    justify-content: space-around;
-    margin: 5px;
+    text-decoration-line: none;
 }

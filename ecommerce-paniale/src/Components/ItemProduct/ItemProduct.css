@@ -1,8 +1,3 @@
-.item-product {
-    margin:10px;
-    text-align: center;
-}
-
 img {
     object-fit: contain;
 }
@@ -10,8 +5,4 @@ img {
 img div {
     height: 100px;
     text-align: center;
-}
-
-.MuiCardContent-root .css-46bh2p-MuiCardContent-root{
-    height: 100px;
 }
