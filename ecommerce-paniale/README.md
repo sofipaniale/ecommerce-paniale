@@ -1,7 +1,7 @@
 
 CamiMakeUp.
 
-
+![image](https://github.com/sofipaniale/ecommerce-paniale/blob/main/ecommerce-paniale/public/assets/ecommerce.gif)
 
 Este es un proyecto creado para el curso de ReactJS de CODERHOUSE, es una tienda para compra online de maquillaje.
 
