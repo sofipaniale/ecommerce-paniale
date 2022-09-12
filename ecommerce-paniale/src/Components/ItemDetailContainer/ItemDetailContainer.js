@@ -17,28 +17,6 @@ const ItemDetailContainer = () => {
              .then(res=>setProductData({id: res.id, ...res.data()}))
         },[id])
 
-    /*const filtrados = productList.find ((product => product.id == id));
-   
-    console.log(filtrados);
-    
-    useEffect(()=>{
-
-        const getProducts = new Promise((resolve) => {
-            setTimeout(()=>{
-                    resolve(filtrados)
-                }
-            , 2000);
-    });
-    
-         getProducts
-              .then(async()=>{
-                const result = await getProducts;
-                setProductData(result)})
-             .catch((error) =>{
-                console.log('error al mostrar')}
-             )
-    },[id]);*/
-    
     return(
         <div className="container-item-detail">
             <ItemDetail data={products}/>

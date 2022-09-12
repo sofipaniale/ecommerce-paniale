@@ -11,8 +11,6 @@ const ItemListConteiner = () => {
 
     const {category} = useParams();
 
-   // const filtrados = productList.filter ((product => product.category === category));
-      
     const getProducts = async () => {
       const productCollection = collection(db, 'products');
       const productSnapshot = await getDocs(productCollection);
@@ -33,27 +31,6 @@ const ItemListConteiner = () => {
     .then(res =>setProductData (res.docs.map(product =>({id: product.id, ...product.data()}))))
     }
 },[category])
-    /*
-       
-       const getProducts = new Promise((resolve) => {
-            setTimeout(()=>{
-                if (category) {
-                    resolve(filtrados);
-                }else{
-                    resolve(productList)
-                }
-            }, 2000);
-    });
-    
-         getProducts
-              .then(async()=>{
-                const result = await getProducts;
-                setProductData(result)})
-             .catch((error) =>{
-                console.log('error al mostrar')}
-             )
-             */ ; 
-
 
     return (
         <>
